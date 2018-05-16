@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid">
+        <h1 class="display-4">Teacher's List</h1>
+        <p class="lead">Below our staff</p>
+      </div>
+    </div>
+  <!-- <title>Teacher's List</title> -->
+</head>
+<body>
+  <div class="container">
+    <br>
+    <br>
+      <div *ngIf="!form">
+          <ul class="list-group" >
+              <li class="list-group-item active">Teachers!</li>
+              <li class="list-group-item" *ngFor="let i of teacherList;let y=index"  >{{i.name}}</li>
+          </ul>
+          <br/>
+          <br/>
+          <button class='button' (click)="viewForm()">Add Teacher</button>
+    
+      </div>
+      <div *ngIf='form'>
+          
+              <label for="name">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="name"  required>
+              
+              <div>
+                  <label for="name">Select</label>
+                  <select [(ngModel)]='subjectId'>
+                      <option *ngFor="let i of subjectList;let y=index" [ngValue]='i.id' #option>{{i.name}} </option>
+                  </select>
+              </div>
+
+              <div>
+                  <button (click)='send()'>Add!</button>
+              </div>
+      </div>
+
+  </div>
+  
+    
+</body>
+</html>
+
+
+ 
